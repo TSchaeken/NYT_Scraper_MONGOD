@@ -1,4 +1,11 @@
 <li>
   <a href={{ url }}>{{ heading }}</a>
+  <p>{{_id}}</p>
   <p>{{ text }}</p>
+  <button class="delete-button" data-id={{_id}}>DELETE</button>
+  {{#if notes }}
+    {{content}}
+  {{else}}  
+    <button class="note-button" data-id={{_id}}>Add a note</button>
+  {{/if}}
 </li>

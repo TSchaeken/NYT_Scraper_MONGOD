@@ -14,6 +14,7 @@ module.exports = {
   },
 
   deleteArticle(req, res) {
+    console.log(`Removed ${req.params.id}`);
     db.Articles.remove({ _id: req.params.id }).then(article => res.json(article));
   },
 
