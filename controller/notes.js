@@ -8,10 +8,14 @@ module.exports = {
   },
 
   createNote(req, res) {
-    console.log(req.body);
-    db.Notes.create(req.body).then((dbNote) => {
-      res.json(dbNote);
-    });
+    db.Notes.create(req.body)
+      .then(dbNote =>
+        db.Articles.findOneAndUpdate(
+          { _id: dbNote.articleId },
+          { $push: { notes: dbNote._id } },
+          { new: true },
+        ))
+      .then(res => console.log(res));
   },
 
   deleteNote(req, res) {

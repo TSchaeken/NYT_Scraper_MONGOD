@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
     element.addEventListener('click', deleteArticle));
   Array.from(document.querySelectorAll('.note-button')).forEach(element =>
     element.addEventListener('click', addNote));
+  Array.from(document.querySelectorAll('.article')).forEach(element =>
+    element.addEventListener('click', viewArticle));
 });
 
 function deleteArticle() {
@@ -20,4 +22,8 @@ function addNote() {
       articleId: `${this.dataset.id}`,
     }),
   }).then(res => location.reload());
+}
+
+function viewArticle() {
+  location.href = `${location}show/${this.dataset.id}`;
 }

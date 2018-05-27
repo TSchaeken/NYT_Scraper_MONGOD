@@ -18,10 +18,12 @@ const SchemaDeArticle = new Schema({
     required: true,
     unique: true,
   },
-  notes: {
-    type: Schema.Types.ObjectId,
-    ref: 'Notes',
-  },
+  notes: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Notes',
+    },
+  ],
 });
 
 const Articles = mongoose.model('Articles', SchemaDeArticle);

@@ -22,4 +22,8 @@ module.exports = {
     db.Articles.findOneAndUpdate({ _id: req.params.id }, { $set: req.body }, { new: true })
       .then(article => res.json(article));
   },
+
+  renderArticleWithNote(id) {
+    return db.Articles.findOne({ _id: id }).populate('notes').then(article => article);
+  },
 };
