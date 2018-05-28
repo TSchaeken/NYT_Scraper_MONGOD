@@ -15,7 +15,7 @@
   },
   "homepage": "https://github.com/TSchaeken/NYT_Scraper_MONGOD#readme",
   "scripts": {
-    "start": "node scraperino.js",
+    "start": "node server.js",
     "lint": "eslint app.js"
   },
   "dependencies": {
